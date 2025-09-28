@@ -1,11 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
-<body>
+    <style>
+        .feedback-form {
+  width: 480px;
+}
+
+.feedback-form > label {
+  width: 100%;
+  margin-bottom: 16px;
+  padding: 8px;
+  display: flex;
+  flex-direction: column;
+}
+
+.feedback-form input,
+.feedback-form textarea {
+  font: inherit;
+  padding: 8px;
+}
+
+.feedback-form textarea {
+  resize: none;
+}
+    </style>
+  </head>
+  <body>
+    <form class="feedback-form js-feedback-form">
+      <label>
+        <b>Name</b>
+        <input
+          type="text"
+          name="name"
+          placeholder="Enter your name"
+          value="Anonim"
+        />
+      </label>
+      <label>
+        <b>Message</b>
+        <textarea name="message" rows="6"></textarea>
+      </label>
+      <button type="submit">Send feedback</button>
+    </form>
+
     <script src="./script.js"></script>
-</body>
+  </body>
 </html>

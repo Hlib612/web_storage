@@ -68,11 +68,13 @@ const formData = {
 }
 formData[event.target.name] = event.target.value;
 console.log(formData);
- localStorage.setItem(FORMDATA , JSON.stringify(formData));
+//  localStorage.setItem(FORMDATA , JSON.stringify(formData));
+save(FORMDATA , formData);
 }
 
 const populateData = (event) =>{
-  const trueData = localStorage.getItem(FORMDATA);
+  // const trueData = localStorage.getItem(FORMDATA);
+  const trueData = load(FORMDATA , formData);
   console.log(trueData);
   if(trueData){
     const parsedData = JSON.parse(trueData);
@@ -88,3 +90,28 @@ const populateData = (event) =>{
 form.addEventListener("submit" , onSubmitForm);
 form.addEventListener("input" , oninputChange);
 populateData();
+
+
+
+function save(key , value) {
+  try{
+ const jsonData = JSON.stringify(value);
+ localStorage.setItem(key , jsonData);
+  } catch(error){
+console.log(error)
+  }
+}
+
+function load(key) {
+  try{
+const data = localStorage.getItem(key);
+if(data){
+  const parseData = JSON.parse(data);
+  return
+} else{
+ return undefined;
+}
+  } catch(error){
+console.log(error)
+  }
+}
